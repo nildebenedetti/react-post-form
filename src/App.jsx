@@ -70,17 +70,17 @@ function App() {
          */}
           <div>
             <label htmlFor="author">Author</label>
-            <input type="text" id="author" name="postAuthor" onChange={changeHandler} value={formData.author}>
+            <input type="text" id="author" name="author" onChange={changeHandler} value={formData.author}>
             </input>
             <label htmlFor="title">Title </label>
-            <input type="text" id="title" name="PostTitle" onChange={changeHandler} value={formData.title}></input>
+            <input type="text" id="title" name="title" onChange={changeHandler} value={formData.title}></input>
             <br></br>
           </div>
           <label htmlFor="body">Your Post </label>
-          <textarea type="textarea" id="body" rows={10} name="postBody" onChange={changeHandler} value={formData.body}></textarea>
+          <textarea type="textarea" id="body" rows={10} name="body" onChange={changeHandler} value={formData.body}></textarea>
           <div>
             <label htmlFor="public">Public Post </label>
-            <input type="checkbox" name="publishState" id="public" onChange={changeHandler} checked={formData.public.checked}></input>
+            <input type="checkbox" name="public" id="public" onChange={changeHandler} checked={formData.public.checked}></input>
           </div>
           <div>
             <button className="btn btn-primary">Inquina il mondo con i tuoi pensieri</button>
