@@ -6,7 +6,10 @@ function App() {
   // variabile di stato per registrare i dati del form
   // ci inserisco un ogetto che rappresenta il form per mappare le chiavi
   const [formData, setFormData] = useState({
-    author: "nome autore",
+    postAuthor: "Zenzzy (Il Fuggitivo Croccante)",
+    postTitle: "S.O.S.",
+    postBody: "Avvistato Lord Farquaad con un bicchiere di latte... CRUDELE!",
+    publishState: true
   });
 
 
@@ -25,14 +28,17 @@ function App() {
           n.b.: id e'rilevante per matchare la label, 
           name e'rilevante per recuperare la value
          */}
-          <label htmlFor="author">Author</label>
-          <input type="text" id="author" name="postAuthor" onChange="" value="">
-          </input>
-          <label htmlFor="title">Title </label>
-          <input type="text" id="title" name="PostTitle" onChange="" value=""></input>
-          <br></br>
+          <div>
+            <label htmlFor="author">Author</label>
+            <input type="text" id="author" name="postAuthor" onChange="" value="">
+            </input>
+
+            <label htmlFor="title">Title </label>
+            <input type="text" id="title" name="PostTitle" onChange="" value=""></input>
+            <br></br>
+          </div>
           <label htmlFor="body">Your Post </label>
-          <textarea type="textarea" id="body" rows={10} name="title" onChange="" value=""></textarea>
+          <textarea type="textarea" id="body" rows={10} name="postBody" onChange="" value=""></textarea>
           <div>
             <label htmlFor="public">Publish </label>
             <input type="checkbox" name="publishState" id="public" onChange="" checked></input>
