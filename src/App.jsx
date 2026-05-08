@@ -34,21 +34,24 @@ function App() {
     // POI setto il nuovo valore
     setFormData(newFormData);
     // RISULTATO: ogni volta che cambio una virgola nel form, lo rifletto su UI
+  };
 
+  const formSubmitHandler = (event) => {
+      event.preventDefault();
+      console.log(formData)
   };
 
   return <section className="add-post-form">
     <div className="container">
       <div className="card m-3 p-2">
         <h4 className="card-title">Aggiungi un Post</h4>
-        <form className="d-flex flex-column">
+        <form onSubmit={formSubmitHandler} className="d-flex flex-column">
           {/**
             author (string) - L’autore del post
             title (string) - Il titolo del post
             body (string) - Il testo del post
             public (boolean) - Se il post deve essere
                 pubblico (true) o una bozza (false)
-
           n.b.: id e'rilevante per matchare la label, 
           name e'rilevante per recuperare la value
           la value, recupera a sua volta i dati dal form
@@ -65,8 +68,10 @@ function App() {
           <textarea type="textarea" id="body" rows={10} name="postBody" onChange={changeHandler} value={formData.postBody}></textarea>
           <div>
             <label htmlFor="public">Public Post </label>
-            <button className="btn btn-primary">Inquina il mondo con i tuoi pensieri</button>
             <input type="checkbox" name="publishState" id="public" onChange={changeHandler} checked={formData.publishState.checked}></input>
+          </div>
+          <div>
+            <button className="btn btn-primary">Inquina il mondo con i tuoi pensieri</button>
           </div>
         </form>
       </div>
