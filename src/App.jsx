@@ -13,17 +13,23 @@ function App() {
   });
 
   // agggiungo la funzione per gestire onChange - mi metto in ascolto alla UI
-  changeHandler = (event) => {
+  const changeHandler = (event) => {
     // devo identificare chi ha scatenato il cambiamento
+    const target = event.target;
     // poi mi salvo il suo VALORE e NOME
     // NOME mi serve per cercare nell'obj form data la chiave
     // VALORE mi serve per sovrascrivere il valore vecchio
-
+    const { name, value } = target;
     // ottenuti nome e valore, creo COPIA
     // di formData con spreadOperator
     // e sostituisco quello che devo cambiare
+    const newFormData = {
+      ...formData,
+      [name]: value
+    };
     // POI setto il nuovo valore
-
+    console.log(newFormData);
+    
     // RISULTATO: ogni volta che cambio una virgola nel form, lo rifletto su UI
     
     };
