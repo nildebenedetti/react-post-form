@@ -6,10 +6,10 @@ function App() {
   // variabile di stato per registrare i dati del form
   // ci inserisco un ogetto che rappresenta il form per mappare le chiavi
   const [formData, setFormData] = useState({
-    postAuthor: "Zenzzy (Il Fuggitivo Croccante)",
-    postTitle: "S.O.S.",
-    postBody: "Avvistato Lord Farquaad con un bicchiere di latte... CRUDELE!",
-    publishState: true
+    author: "Zenzzy (Il Fuggitivo Croccante)",
+    title: "S.O.S.",
+    body: "Avvistato Lord Farquaad con un bicchiere di latte... CRUDELE!",
+    public: true
   });
 
   // agggiungo la funzione per gestire onChange - mi metto in ascolto alla UI
@@ -18,7 +18,6 @@ function App() {
     const target = event.target;
     //controllo se e'di tipo check e in caso se e' settato
     const checked = target.checked;
-    // poi mi salvo il suo VALORE e NOME
     // NOME mi serve per cercare nell'obj form data la chiave
     // VALORE/ checked mi serve per sovrascrivere il valore vecchio
     const { name, value, type } = target;
@@ -41,6 +40,17 @@ function App() {
       event.preventDefault(); // no refresh pagina
       console.log(formData)
       // inviare post alle API
+      fetch('https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts', {
+            headers: {
+                'Content-Type': 'application/json'  
+            },
+            method: 'POST',
+            body: JSON.stringify(formData)
+        }).then(response => {
+            return response.json();
+        }).then(json => {
+            console.log(json);
+        });
   };
 
   return <section className="add-post-form">
@@ -60,17 +70,17 @@ function App() {
          */}
           <div>
             <label htmlFor="author">Author</label>
-            <input type="text" id="author" name="postAuthor" onChange={changeHandler} value={formData.postAuthor}>
+            <input type="text" id="author" name="postAuthor" onChange={changeHandler} value={formData.author}>
             </input>
             <label htmlFor="title">Title </label>
-            <input type="text" id="title" name="PostTitle" onChange={changeHandler} value={formData.postTitle}></input>
+            <input type="text" id="title" name="PostTitle" onChange={changeHandler} value={formData.title}></input>
             <br></br>
           </div>
           <label htmlFor="body">Your Post </label>
-          <textarea type="textarea" id="body" rows={10} name="postBody" onChange={changeHandler} value={formData.postBody}></textarea>
+          <textarea type="textarea" id="body" rows={10} name="postBody" onChange={changeHandler} value={formData.body}></textarea>
           <div>
             <label htmlFor="public">Public Post </label>
-            <input type="checkbox" name="publishState" id="public" onChange={changeHandler} checked={formData.publishState.checked}></input>
+            <input type="checkbox" name="publishState" id="public" onChange={changeHandler} checked={formData.public.checked}></input>
           </div>
           <div>
             <button className="btn btn-primary">Inquina il mondo con i tuoi pensieri</button>
