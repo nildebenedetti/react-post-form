@@ -6,9 +6,9 @@ function App() {
   // variabile di stato per registrare i dati del form
   // ci inserisco un ogetto che rappresenta il form per mappare le chiavi
   const [formData, setFormData] = useState({
-    author: "Zenzzy (Il Fuggitivo Croccante)",
-    title: "S.O.S.",
-    body: "Avvistato Lord Farquaad con un bicchiere di latte... CRUDELE!",
+    author: "",
+    title: "",
+    body: "",
     public: true
   });
 
