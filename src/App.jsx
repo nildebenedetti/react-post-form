@@ -13,7 +13,7 @@ function App() {
     public: true
   });
   // variabile di stato per settare msg di esito submission
-  const [ feedback, setFeedback ] = useSTate({
+  const [ feedback, setFeedback ] = useState({
     message:"", type: ""
   });
 
@@ -52,11 +52,17 @@ function App() {
             method: 'POST',
             body: JSON.stringify(formData)
         }).then(response => {
+            if (response.ok) {
+                setFeedback({message:"Post inviato!", type:"success"});
+            } else {
+              throw new Error(); // vai nella catch
+            }
             return response.json();
         }).then(json => {
             console.log(json);
         }).catch (error => {
           console.error('chiamatra fallita', error);
+          setFeedback({message:"qualcosa e' ndato storto", type:"failure"});
         });
   };
 
