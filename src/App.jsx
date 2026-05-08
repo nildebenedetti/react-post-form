@@ -64,7 +64,8 @@ function App() {
           <label htmlFor="body">Your Post </label>
           <textarea type="textarea" id="body" rows={10} name="postBody" onChange={changeHandler} value={formData.postBody}></textarea>
           <div>
-            <label htmlFor="public">Publish </label>
+            <label htmlFor="public">Public Post </label>
+            <button className="btn btn-primary">Inquina il mondo con i tuoi pensieri</button>
             <input type="checkbox" name="publishState" id="public" onChange={changeHandler} checked={formData.publishState.checked}></input>
           </div>
         </form>
