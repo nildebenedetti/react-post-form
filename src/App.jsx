@@ -1,6 +1,15 @@
+import { useState } from "react";
 
 
 function App() {
+
+  // variabile di stato per registrare i dati del form
+  // ci inserisco un ogetto che rappresenta il form per mappare le chiavi
+  const [ formData, setFormData ] = useState({
+    author: "nome autore",
+  });
+
+
   return <section className="add-post-form">
     <div className="container">
       <div className="card m-3 p-2">
