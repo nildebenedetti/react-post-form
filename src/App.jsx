@@ -50,6 +50,8 @@ function App() {
             return response.json();
         }).then(json => {
             console.log(json);
+        }).catch (error => {
+          console.error('chiamatra fallita', error);
         });
   };
 
