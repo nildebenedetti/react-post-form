@@ -1,3 +1,4 @@
+import { Alert } from "bootstrap";
 import { useState } from "react";
 
 
@@ -10,6 +11,10 @@ function App() {
     title: "",
     body: "",
     public: true
+  });
+  // variabile di stato per settare msg di esito submission
+  const [ feedback, setFeedback ] = useSTate({
+    message:"", type: ""
   });
 
   // agggiungo la funzione per gestire onChange - mi metto in ascolto alla UI
