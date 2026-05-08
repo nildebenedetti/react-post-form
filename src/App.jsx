@@ -21,15 +21,16 @@ function App() {
     // poi mi salvo il suo VALORE e NOME
     // NOME mi serve per cercare nell'obj form data la chiave
     // VALORE/ checked mi serve per sovrascrivere il valore vecchio
-    const { name, value, type, } = target;
-    const keyToUpdate = (type === 'checkbox' ? checked : value)
+    const { name, value, type } = target;
+    const keyToUpdate = name
+    const valueToUpdate = (type === 'checkbox' ? checked : value)
     // inserisco il value to update di modo da smistare campi checkbox e campi name
     // ottenuti nome e valore, creo COPIA
     // di formData con spreadOperator
     // e sostituisco quello che devo cambiare
     const newFormData = {
       ...formData,
-      [keyToUpdate]: value
+      [keyToUpdate]: valueToUpdate
     };
     // POI setto il nuovo valore
     setFormData(newFormData);
@@ -37,8 +38,9 @@ function App() {
   };
 
   const formSubmitHandler = (event) => {
-      event.preventDefault();
+      event.preventDefault(); // no refresh pagina
       console.log(formData)
+      // inviare post alle API
   };
 
   return <section className="add-post-form">
