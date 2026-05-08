@@ -12,6 +12,21 @@ function App() {
     publishState: true
   });
 
+  // agggiungo la funzione per gestire onChange - mi metto in ascolto alla UI
+  changeHandler = (event) => {
+    // devo identificare chi ha scatenato il cambiamento
+    // poi mi salvo il suo VALORE e NOME
+    // NOME mi serve per cercare nell'obj form data la chiave
+    // VALORE mi serve per sovrascrivere il valore vecchio
+
+    // ottenuti nome e valore, creo COPIA
+    // di formData con spreadOperator
+    // e sostituisco quello che devo cambiare
+    // POI setto il nuovo valore
+
+    // RISULTATO: ogni volta che cambio una virgola nel form, lo rifletto su UI
+    
+    };
 
   return <section className="add-post-form">
     <div className="container">
